@@ -5,6 +5,9 @@ public class MoveControllerEnemy : MonoBehaviour
 {
 
     [SerializeField] private float speedMove;
+    [SerializeField] private float speedRotate;
+    [SerializeField] private float offset = -90f;
+    [SerializeField] private float minDisatnce = 0.1f;
 
     private int indexPath = 0;
     private Transform target;
@@ -17,11 +20,13 @@ public class MoveControllerEnemy : MonoBehaviour
     void Start()
     {
         target = LevelManager.main.path[indexPath];
+        Rotate();
     }
 
     private void Update()
     {
-        if(Vector3.Distance(target.position, transform.position) <= 0.1f)
+        Rotate();
+        if (Vector3.Distance(target.position, transform.position) <= minDisatnce)
         {
             indexPath++;
 
@@ -42,5 +47,14 @@ public class MoveControllerEnemy : MonoBehaviour
         Vector3 direction = (target.position - transform.position).normalized;
 
         rb.linearVelocity = direction * speedMove;
+    }
+
+    private void Rotate()
+    {
+        Vector3 difference = target.position - transform.position;
+        difference.y = 0;
+        difference.Normalize();
+        Quaternion targetRotation = Quaternion.LookRotation(difference) * Quaternion.Euler(0f, offset, 0f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, speedRotate * Time.deltaTime);
     }
 }
