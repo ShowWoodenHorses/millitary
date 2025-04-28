@@ -32,6 +32,7 @@ public class MoveControllerEnemy : MonoBehaviour
 
             if(indexPath >= LevelManager.main.path.Length)
             {
+                EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
                 return;
             }
