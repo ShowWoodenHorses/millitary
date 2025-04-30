@@ -18,6 +18,11 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        Destroy(gameObject, 5f);
+    }
+
     void FixedUpdate()
     {
         if (target == null) return;
@@ -34,7 +39,10 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        collision.transform.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
-        Destroy(gameObject);
+        if(collision.transform.gameObject.GetComponent<Health>() != null)
+        {
+            collision.transform.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
+            Destroy(gameObject);
+        }
     }
 }
