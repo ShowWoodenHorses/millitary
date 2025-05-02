@@ -37,11 +37,11 @@ public class Bullet : MonoBehaviour
         this.target = target;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.transform.gameObject.GetComponent<Health>() != null)
+        if (other.transform.gameObject.GetComponent<Health>() != null)
         {
-            collision.transform.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
+            other.transform.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
     }

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 844340107586499983}
   - component: {fileID: 8958675325977439841}
   - component: {fileID: 6405913105741972505}
+  - component: {fileID: 2991498657838739835}
   - component: {fileID: 8731339432882227606}
   - component: {fileID: 8485894407031608173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,6 +108,20 @@ MonoBehaviour:
   speedRotate: 2.5
   offset: 90
   minDisatnce: 0.5
+--- !u!114 &2991498657838739835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280818889134250673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02695b0d09a4a8439bdd8ee6d9bd585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  cost: 30
 --- !u!54 &8731339432882227606
 Rigidbody:
   m_ObjectHideFlags: 0

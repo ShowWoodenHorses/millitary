@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7128234754166040242}
   - component: {fileID: 521035079687920684}
   m_Layer: 7
-  m_Name: BulletPrefab
+  m_Name: BulletPrefab2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2fec62713729e048a2ee0ad805a4f0b, type: 2}
+  - {fileID: 2100000, guid: 3eec3a73afbdb864f942469b0803e899, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

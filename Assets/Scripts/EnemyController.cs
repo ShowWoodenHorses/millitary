@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveControllerEnemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
 
     [SerializeField] private float speedMove;
@@ -9,17 +9,19 @@ public class MoveControllerEnemy : MonoBehaviour
     [SerializeField] private float offset = -90f;
     [SerializeField] private float minDisatnce = 0.1f;
 
-    private int indexPath = 0;
     private Transform target;
     private Rigidbody rb;
+    private int indexPath = 0;
+    private float baseSpeedMove;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
-    void Start()
+    private void Start()
     {
         target = LevelManager.main.path[indexPath];
+        baseSpeedMove = speedMove;
         Rotate();
     }
 
@@ -57,5 +59,20 @@ public class MoveControllerEnemy : MonoBehaviour
         difference.Normalize();
         Quaternion targetRotation = Quaternion.LookRotation(difference) * Quaternion.Euler(0f, offset, 0f);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, speedRotate * Time.deltaTime);
+    }
+
+    public void UpdateSpeedMove(float speed)
+    {
+        speedMove = speed;
+    }
+
+    public void ResetSpeedMove()
+    {
+        speedMove = baseSpeedMove;
+    }
+
+    public float GetSpeedMove()
+    {
+        return speedMove;
     }
 }
