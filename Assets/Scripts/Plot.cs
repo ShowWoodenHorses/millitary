@@ -5,6 +5,7 @@ public class Plot : MonoBehaviour
     [Header("References")]
     [SerializeField] private Renderer renderer;
     [SerializeField] private Color hoverColor;
+    [SerializeField] private Material invisiable;
 
     private GameObject turretObj;
     private UpgradeController turretUpgrade;
@@ -21,12 +22,12 @@ public class Plot : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        renderer.material.color = hoverColor;
+        if(turretObj == null) renderer.material.color = hoverColor;
     }
 
     private void OnMouseExit()
     {
-        renderer.material.color = startColor;
+        if (turretObj == null) renderer.material.color = startColor;
     }
 
     private void OnMouseDown()
@@ -48,6 +49,7 @@ public class Plot : MonoBehaviour
 
         LevelManager.main.RemoveMoney(towerToBuild.cost);
         turretObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        renderer.material = invisiable;
         turretUpgrade = turretObj.GetComponent<UpgradeController>();
     }
 }

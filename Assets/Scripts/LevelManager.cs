@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        money = 200;
+        money = 2000;
     }
 
     public void AddMoney(int amount)
@@ -29,10 +29,6 @@ public class LevelManager : MonoBehaviour
         if(amount <= money)
         {
             money -= amount;
-        }
-        else
-        {
-            // no money
         }
     }
 }

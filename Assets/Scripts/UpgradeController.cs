@@ -12,7 +12,7 @@ public class UpgradeController : MonoBehaviour
     [SerializeField] private GameObject[] upgrades;
 
     [Header("Attribute")]
-    [SerializeField] private int baseUpgradeCost = 50;
+    [SerializeField] private int baseUpgradeCost;
     [SerializeField] private float coeffUpgradeCost = 1.5f;
 
     private int level = 0;
@@ -25,7 +25,7 @@ public class UpgradeController : MonoBehaviour
     private void Start()
     {
         upgradeBtn.onClick.AddListener(Upgrade);
-        UpdateUpgradeCostText(CalculateCost());
+        UpdateUpgradeCostText(baseUpgradeCost);
     }
 
     public void OpenUpgradeUI()
@@ -40,16 +40,18 @@ public class UpgradeController : MonoBehaviour
 
     public void Upgrade()
     {
-        if (CalculateCost() > LevelManager.main.money) return;
+        if (baseUpgradeCost > LevelManager.main.money) return;
 
         int nextLevel = level + 1;
 
         if (nextLevel >= upgrades.Length) return;
 
         level = nextLevel;
-        LevelManager.main.RemoveMoney(CalculateCost());
+
+        LevelManager.main.RemoveMoney(baseUpgradeCost);
         UpdateUpgradeCostText(CalculateCost());
         SelectUpgrade(upgrades[level]);
+        baseUpgradeCost = CalculateCost();
 
         if (level == upgrades.Length - 1)
         {

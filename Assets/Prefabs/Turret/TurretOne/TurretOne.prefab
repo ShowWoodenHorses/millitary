@@ -312,8 +312,8 @@ MonoBehaviour:
   - {fileID: 4495124467281010292}
   - {fileID: 4032404475689527831}
   - {fileID: 1266970504689011497}
-  baseUpgradeCost: 50
-  coeffUpgradeCost: 1.5
+  baseUpgradeCost: 100
+  coeffUpgradeCost: 0.8
 --- !u!1 &5513748565216064889
 GameObject:
   m_ObjectHideFlags: 0
