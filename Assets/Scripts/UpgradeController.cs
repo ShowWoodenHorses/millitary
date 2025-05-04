@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 public class UpgradeController : MonoBehaviour
 {
-    [Header("Upgrade")]
+    [Header("References")]
     [SerializeField] private GameObject upgradeeUI;
     [SerializeField] private Button upgradeBtn;
     [SerializeField] private TextMeshProUGUI upgradeCostText;
     [SerializeField] private GameObject[] upgrades;
 
     [Header("Attribute")]
-    [SerializeField] private int baseUpgradeCost;
+    [SerializeField] private int upgradeCost = 100;
     [SerializeField] private float coeffUpgradeCost = 1.5f;
 
     private int level = 0;
+    private int currentCost;
+    private SellController sellController;
+
+    public static event Action ChangeCost;
 
     private void Awake()
     {
@@ -25,7 +29,9 @@ public class UpgradeController : MonoBehaviour
     private void Start()
     {
         upgradeBtn.onClick.AddListener(Upgrade);
-        UpdateUpgradeCostText(baseUpgradeCost);
+        UpdateUpgradeCostText(upgradeCost);
+        sellController = GetComponent<SellController>();
+        sellController.UpdateSellCost(currentCost);
     }
 
     public void OpenUpgradeUI()
@@ -40,7 +46,7 @@ public class UpgradeController : MonoBehaviour
 
     public void Upgrade()
     {
-        if (baseUpgradeCost > LevelManager.main.money) return;
+        if (upgradeCost > LevelManager.main.money) return;
 
         int nextLevel = level + 1;
 
@@ -48,10 +54,12 @@ public class UpgradeController : MonoBehaviour
 
         level = nextLevel;
 
-        LevelManager.main.RemoveMoney(baseUpgradeCost);
+        LevelManager.main.RemoveMoney(upgradeCost);
         UpdateUpgradeCostText(CalculateCost());
         SelectUpgrade(upgrades[level]);
-        baseUpgradeCost = CalculateCost();
+        currentCost += upgradeCost;
+        sellController.UpdateSellCost(currentCost);
+        upgradeCost = CalculateCost();
 
         if (level == upgrades.Length - 1)
         {
@@ -62,7 +70,7 @@ public class UpgradeController : MonoBehaviour
 
     private int CalculateCost()
     {
-        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level + 1, coeffUpgradeCost));
+        return Mathf.RoundToInt(upgradeCost * Mathf.Pow(level + 1, coeffUpgradeCost));
     }
 
     private void SelectUpgrade(GameObject upgrade)
@@ -77,6 +85,16 @@ public class UpgradeController : MonoBehaviour
     private void UpdateUpgradeCostText(int cost)
     {
         upgradeCostText.text = cost.ToString();
+    }
+
+    public int GetCurrentCost()
+    {
+        return currentCost;
+    }
+
+    public void SetCurrentCost(int cost)
+    {
+        currentCost = cost;
     }
 
 }

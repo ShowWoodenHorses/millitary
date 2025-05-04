@@ -79,7 +79,7 @@ public class EnemyController : MonoBehaviour
         return speedMove;
     }
 
-    public int GetCountPointTFinish()
+    public int GetCountPointToFinish()
     {
         return countPointToFinish;
     }

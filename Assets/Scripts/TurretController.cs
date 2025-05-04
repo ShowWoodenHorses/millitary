@@ -94,12 +94,12 @@ public class TurretController : MonoBehaviour
 
     private Transform FindTargetNearerFinish(RaycastHit[] hits)
     {
-        int min = hits[0].transform.gameObject.GetComponent<EnemyController>().GetCountPointTFinish();
+        int min = hits[0].transform.gameObject.GetComponent<EnemyController>().GetCountPointToFinish();
         Transform target = hits[0].transform;
 
         for(int i = 0; i < hits.Length; i++)
         {
-            int countPointToFinish = hits[i].transform.gameObject.GetComponent<EnemyController>().GetCountPointTFinish();
+            int countPointToFinish = hits[i].transform.gameObject.GetComponent<EnemyController>().GetCountPointToFinish();
             if(countPointToFinish < min)
             {
                 min = countPointToFinish;
