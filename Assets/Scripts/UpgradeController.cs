@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -50,7 +51,7 @@ public class UpgradeController : MonoBehaviour
         UpdateUpgradeCostText(CalculateCost());
         SelectUpgrade(upgrades[level]);
 
-        if (level == upgrades.Length)
+        if (level == upgrades.Length - 1)
         {
             upgradeBtn.gameObject.SetActive(false);
             upgradeCostText.gameObject.SetActive(false);

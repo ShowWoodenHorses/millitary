@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody rb;
     private int indexPath = 0;
     private float baseSpeedMove;
+    private int countPointToFinish;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         target = LevelManager.main.path[indexPath];
+        countPointToFinish = LevelManager.main.path.Length;
         baseSpeedMove = speedMove;
         Rotate();
     }
@@ -31,8 +33,9 @@ public class EnemyController : MonoBehaviour
         if (Vector3.Distance(target.position, transform.position) <= minDisatnce)
         {
             indexPath++;
+            countPointToFinish--;
 
-            if(indexPath >= LevelManager.main.path.Length)
+            if (indexPath >= LevelManager.main.path.Length)
             {
                 EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
@@ -74,5 +77,10 @@ public class EnemyController : MonoBehaviour
     public float GetSpeedMove()
     {
         return speedMove;
+    }
+
+    public int GetCountPointTFinish()
+    {
+        return countPointToFinish;
     }
 }

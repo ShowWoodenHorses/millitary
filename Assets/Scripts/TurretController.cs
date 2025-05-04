@@ -58,7 +58,14 @@ public class TurretController : MonoBehaviour
 
         if (hits.Length > 0)
         {
-            target = hits[0].transform;
+            if (hits.Length == 1)
+            {
+                target = hits[0].transform;
+                return;
+            }
+
+            target = FindTargetNearerFinish(hits);
+
         }
     }
 
@@ -83,6 +90,23 @@ public class TurretController : MonoBehaviour
     private bool TargetIsInRange()
     {
         return Vector3.Distance(turretRotationPoint.position, target.position) < targetingRange;
+    }
+
+    private Transform FindTargetNearerFinish(RaycastHit[] hits)
+    {
+        int min = hits[0].transform.gameObject.GetComponent<EnemyController>().GetCountPointTFinish();
+        Transform target = hits[0].transform;
+
+        for(int i = 0; i < hits.Length; i++)
+        {
+            int countPointToFinish = hits[i].transform.gameObject.GetComponent<EnemyController>().GetCountPointTFinish();
+            if(countPointToFinish < min)
+            {
+                min = countPointToFinish;
+                target = hits[i].transform;
+            }
+        }
+        return target;
     }
 
     private void OnDrawGizmosSelected()

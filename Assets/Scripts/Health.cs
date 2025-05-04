@@ -11,7 +11,6 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("enemy healsth: " + health);
 
         if(health <= 0 && !isDestroyed)
         {
