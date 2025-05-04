@@ -7,6 +7,7 @@ public class BuildManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private Tower[] towers;
 
+    private bool canBuild = false;
     private int selectedTower = 0;
 
 
@@ -22,6 +23,26 @@ public class BuildManager : MonoBehaviour
 
     public void SetSelectedTower(int selectedTower)
     {
-        this.selectedTower = selectedTower;
+        canBuild = !canBuild;
+        if (canBuild)
+        {
+            this.selectedTower = selectedTower;
+            foreach (GameObject obj in LevelManager.main.plots)
+            {
+                obj.GetComponent<Plot>().AvailableForBuldingColor();
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in LevelManager.main.plots)
+            {
+                obj.GetComponent<Plot>().ResetColor();
+            }
+        }
+    }
+
+    public bool CanBuilding()
+    {
+        return canBuild;
     }
 }

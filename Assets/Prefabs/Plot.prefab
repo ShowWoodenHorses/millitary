@@ -123,4 +123,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
   hoverColor: {r: 0.3443396, g: 0.82843924, b: 1, a: 0}
+  avaiableColor: {r: 0.495283, g: 1, b: 0.49669018, a: 0}
   invisiable: {fileID: 2100000, guid: f6b612120b124f2499253527ec730aa6, type: 2}
