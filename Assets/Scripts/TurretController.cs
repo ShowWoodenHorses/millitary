@@ -5,20 +5,30 @@ using UnityEngine.UI;
 public class TurretController : MonoBehaviour
 {
 
+    [SerializeField] private TurretProperties towerData;
+    
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask targetLayer;
-    [SerializeField] private GameObject bulletPrefab;
+    // [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletStartPosition;
 
     [Header("Attribute")]
-    [SerializeField] private float targetingRange = 5f;
-    [SerializeField] private float speedRotation = 100f;
-    [SerializeField] private float offsetRotation = -90f;
-    [SerializeField] private float bulletPerSecond = 2f;
+    [SerializeField] private float targetingRange;
+    [SerializeField] private float speedRotation;
+    [SerializeField] private float offsetRotation;
+    [SerializeField] private float bulletPerSecond;
 
     private Transform target;
     private float timeUntilFire;
+
+    void Start()
+    {
+        targetingRange = towerData.targetingRange;
+        speedRotation = towerData.speedRotation;
+        offsetRotation = towerData.offsetRotation;
+        bulletPerSecond = towerData.bulletPerSecond;
+    }
 
     void Update()
     {
@@ -83,7 +93,7 @@ public class TurretController : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, bulletStartPosition.position, Quaternion.identity);
+        GameObject bullet = Instantiate(towerData.bulletPrefab, bulletStartPosition.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().SetTarget(target);
     }
 

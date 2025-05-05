@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 1878093717037054620}
   - component: {fileID: 8318337720652540202}
   m_Layer: 0
-  m_Name: TurretOne
+  m_Name: TurretArtillery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,9 +287,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8871764994618096984}
   - {fileID: 6118732005093255173}
   - {fileID: 6736825621415812198}
-  - {fileID: 8871764994618096984}
   - {fileID: 8115906072263776043}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -652,7 +652,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1832297179868379492, guid: c5892ec635a603348a12e87d6a14f30d, type: 3}
       propertyPath: m_Name
-      value: turret_level3
+      value: turret_level1
       objectReference: {fileID: 0}
     - target: {fileID: 1832297179868379492, guid: c5892ec635a603348a12e87d6a14f30d, type: 3}
       propertyPath: m_IsActive
@@ -661,7 +661,7 @@ PrefabInstance:
     - target: {fileID: 2849165429967459152, guid: c5892ec635a603348a12e87d6a14f30d, type: 3}
       propertyPath: towerData
       value: 
-      objectReference: {fileID: 11400000, guid: 9bb9d3bf54997ad47928733b8bd612b6, type: 2}
+      objectReference: {fileID: 11400000, guid: 88b68c3551919344994b9c0512451194, type: 2}
     - target: {fileID: 8351460586585263893, guid: c5892ec635a603348a12e87d6a14f30d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -727,12 +727,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1832297179868379492, guid: 01629bf311cc07f42aa194353787ce91, type: 3}
       propertyPath: m_Name
-      value: turret_level1
+      value: turret_level3
       objectReference: {fileID: 0}
     - target: {fileID: 2849165429967459152, guid: 01629bf311cc07f42aa194353787ce91, type: 3}
       propertyPath: towerData
       value: 
-      objectReference: {fileID: 11400000, guid: 9bb9d3bf54997ad47928733b8bd612b6, type: 2}
+      objectReference: {fileID: 11400000, guid: 88b68c3551919344994b9c0512451194, type: 2}
     - target: {fileID: 8351460586585263893, guid: 01629bf311cc07f42aa194353787ce91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -807,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 2849165429967459152, guid: e220b64a034f2524fa1a7e2bc307a10b, type: 3}
       propertyPath: towerData
       value: 
-      objectReference: {fileID: 11400000, guid: 9bb9d3bf54997ad47928733b8bd612b6, type: 2}
+      objectReference: {fileID: 11400000, guid: 88b68c3551919344994b9c0512451194, type: 2}
     - target: {fileID: 8351460586585263893, guid: e220b64a034f2524fa1a7e2bc307a10b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

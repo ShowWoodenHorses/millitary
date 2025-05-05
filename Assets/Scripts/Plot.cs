@@ -40,16 +40,17 @@ public class Plot : MonoBehaviour
             turretUpgrade.OpenUpgradeUI();
             return;
         }
+        Debug.LogError(turretObj);
 
         if (!BuildManager.main.CanBuilding()) return;
 
-        Tower towerToBuild = BuildManager.main.GetSelectedTower();
+        TurretProperties  towerToBuild = BuildManager.main.GetSelectedTower();
 
         if(towerToBuild.cost > LevelManager.main.money)
         {
             return;
         }
-
+        
         LevelManager.main.RemoveMoney(towerToBuild.cost);
         turretObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         renderer.material = invisiable;

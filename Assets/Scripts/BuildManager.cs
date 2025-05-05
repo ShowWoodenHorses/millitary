@@ -5,7 +5,7 @@ public class BuildManager : MonoBehaviour
     public static BuildManager main;
 
     [Header("References")]
-    [SerializeField] private Tower[] towers;
+    [SerializeField] private TurretProperties[] towers;
 
     private bool canBuild = false;
     private int selectedTower = 0;
@@ -16,7 +16,7 @@ public class BuildManager : MonoBehaviour
         main = this;
     }
 
-    public Tower GetSelectedTower()
+    public TurretProperties GetSelectedTower()
     {
         return towers[selectedTower];
     }
