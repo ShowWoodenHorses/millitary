@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float timeBetweenWave = 5f;
+    [SerializeField] private int maxWave = 10;
 
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
@@ -24,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void Start()
     {
+        maxWave = waveSetting.waves.Count;
         StartCoroutine(StartWave());
     }
 
@@ -64,6 +66,10 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         currentWave++;
+        if(currentWave >= maxWave)
+        {
+            currentWave = maxWave - 1;
+        }
         StartCoroutine(StartWave());
     }
 
