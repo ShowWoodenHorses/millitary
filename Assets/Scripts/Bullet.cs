@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour
     public void SetTarget(Transform target)
     {
         this.target = target;
+        StartCoroutine(DestroyBullet());
     }
 
     private void OnTriggerEnter(Collider other)

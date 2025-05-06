@@ -49,7 +49,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  bulletPrefab: {fileID: 1316414897478718721, guid: aada8b38e32ee2f4fa1e87a3eb9a4bde, type: 3}
+  bulletPrefab: {fileID: 1316414897478718721, guid: 14cf55a03c060cb46ba8e084a228f4de, type: 3}
   bulletStartPosition: {fileID: 5731998726758535362}
   targetingRange: 7
   speedRotation: 4

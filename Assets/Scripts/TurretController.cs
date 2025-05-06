@@ -86,8 +86,8 @@ public class TurretController : MonoBehaviour
         GameObject bullet = BulletPool.instance.GetObjectFromPool();
         bullet.transform.position = turretRotationPoint.position;
         bullet.transform.rotation = turretRotationPoint.rotation;
-        bullet.GetComponent<Bullet>().SetTarget(target);
         bullet.SetActive(true);
+        bullet.GetComponent<Bullet>().SetTarget(target);
     }
 
     private bool TargetIsInRange()
