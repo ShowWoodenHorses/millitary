@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd1b1c47b3ff6b4286fc9e30413363c, type: 3}
+  m_Name: WaveOneLevel
+  m_EditorClassIdentifier: 
+  waves:
+  - delayBetweenSpawnEnemy: 0.5
+    enemiesForWave:
+    - {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
+    - {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
+    countEveryEnemy: 0500000002000000
+  - delayBetweenSpawnEnemy: 1
+    enemiesForWave:
+    - {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
+    - {fileID: 280818889134250673, guid: e3c413712368db146815f1efb49f4c4a, type: 3}
+    countEveryEnemy: 0300000002000000
