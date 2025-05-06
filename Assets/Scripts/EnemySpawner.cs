@@ -44,20 +44,22 @@ public class EnemySpawner : MonoBehaviour
         WaveProperty wave = waveSetting.waves[currentWave];
 
         yield return new WaitForSeconds(timeBetweenWave);
+
         isSpawning = true;
         enemiesLeftToSpawn = EnemyPerWave();
 
-        for (int i = 0; i < wave.enemiesForWave.Count; i++)
+        foreach(var enemy in wave.enemies)
         {
-            for (int j = 0; j < wave.countEveryEnemy[i];)
+            yield return new WaitForSeconds(wave.delaySpawnBetweenEnemy);
+
+            for (int i = 0; i < enemy.count; i++)
             {
-                yield return new WaitForSeconds(wave.delayBetweenSpawnEnemy);
+                yield return new WaitForSeconds(enemy.delaySpawn);
+
                 enemiesLeftToSpawn--;
                 enemiesAlive++;
 
-                Instantiate(wave.enemiesForWave[i], LevelManager.main.startPosition.position, Quaternion.identity);
-
-                j++;
+                SpawnEnemy(enemy.enemyPrefab);
             }
         }
     }
@@ -81,12 +83,19 @@ public class EnemySpawner : MonoBehaviour
     private int EnemyPerWave()
     {
         int allEnemy = 0;
+
         WaveProperty wave = waveSetting.waves[currentWave];
-        for (int i = 0; i < wave.countEveryEnemy.Count; i++)
+        
+        foreach(var enemy in wave.enemies)
         {
-            allEnemy += wave.countEveryEnemy[i];
+            allEnemy += enemy.count;
         }
 
         return allEnemy;
+    }
+
+    private void SpawnEnemy(GameObject obj)
+    {
+        Instantiate(obj, LevelManager.main.startPosition.position, Quaternion.identity);
     }
 }

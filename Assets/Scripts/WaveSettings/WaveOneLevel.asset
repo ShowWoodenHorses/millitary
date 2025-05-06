@@ -13,16 +13,24 @@ MonoBehaviour:
   m_Name: WaveOneLevel
   m_EditorClassIdentifier: 
   waves:
-  - delayBetweenSpawnEnemy: 1
-    enemiesForWave:
-    - {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
-    countEveryEnemy: 0e000000
-  - delayBetweenSpawnEnemy: 2
-    enemiesForWave:
-    - {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
-    - {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
-    countEveryEnemy: 0a00000002000000
-  - delayBetweenSpawnEnemy: 2.5
-    enemiesForWave:
-    - {fileID: 280818889134250673, guid: e3c413712368db146815f1efb49f4c4a, type: 3}
-    countEveryEnemy: 0a000000
+  - delaySpawnBetweenEnemy: 1
+    enemies:
+    - enemyPrefab: {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
+      count: 10
+      delaySpawn: 1
+    - enemyPrefab: {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
+      count: 3
+      delaySpawn: 2
+  - delaySpawnBetweenEnemy: 2
+    enemies:
+    - enemyPrefab: {fileID: 280818889134250673, guid: e3c413712368db146815f1efb49f4c4a, type: 3}
+      count: 5
+      delaySpawn: 3
+  - delaySpawnBetweenEnemy: 3
+    enemies:
+    - enemyPrefab: {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
+      count: 14
+      delaySpawn: 2
+    - enemyPrefab: {fileID: 280818889134250673, guid: e3c413712368db146815f1efb49f4c4a, type: 3}
+      count: 6
+      delaySpawn: 4
