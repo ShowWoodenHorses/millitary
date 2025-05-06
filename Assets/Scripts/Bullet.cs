@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,10 +9,10 @@ public class Bullet : MonoBehaviour
 
     [Header("Attribute")]
     [SerializeField] private float speedMove = 5f;
+    [SerializeField] private float bulletLifeTime = 5f;
     [SerializeField] private int bulletDamage = 1;
 
     private Transform target;
-
 
     void Awake()
     {
@@ -20,7 +21,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 5f);
+        StartCoroutine(DestroyBullet());
     }
 
     void FixedUpdate()
@@ -42,7 +43,13 @@ public class Bullet : MonoBehaviour
         if (other.transform.gameObject.GetComponent<Health>() != null)
         {
             other.transform.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
-            Destroy(gameObject);
+            BulletPool.instance.ReturnObjectToPool(gameObject);
         }
+    }
+
+    private IEnumerator DestroyBullet()
+    {
+        yield return new WaitForSeconds(bulletLifeTime);
+        BulletPool.instance.ReturnObjectToPool(gameObject);
     }
 }
