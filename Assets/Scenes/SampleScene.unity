@@ -8558,15 +8558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f697b5e7695b0b429b25b030d99fd65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
-  - {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
-  - {fileID: 280818889134250673, guid: e3c413712368db146815f1efb49f4c4a, type: 3}
-  baseEnemies: 8
-  enemiesPerSecond: 1
+  waveSetting: {fileID: 11400000, guid: a254fd9e9cfb9bc449395f6d09648f90, type: 2}
   timeBetweenWave: 2
-  difficultyScalingFactor: 0.75
-  maxEnemiesPerSecond: 10
+  maxWave: 10
 --- !u!114 &1617554815
 MonoBehaviour:
   m_ObjectHideFlags: 0

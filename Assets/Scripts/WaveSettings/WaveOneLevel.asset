@@ -13,13 +13,16 @@ MonoBehaviour:
   m_Name: WaveOneLevel
   m_EditorClassIdentifier: 
   waves:
-  - delayBetweenSpawnEnemy: 0.5
+  - delayBetweenSpawnEnemy: 1
+    enemiesForWave:
+    - {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
+    countEveryEnemy: 0e000000
+  - delayBetweenSpawnEnemy: 2
     enemiesForWave:
     - {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
     - {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
-    countEveryEnemy: 0500000002000000
-  - delayBetweenSpawnEnemy: 1
+    countEveryEnemy: 0a00000002000000
+  - delayBetweenSpawnEnemy: 2.5
     enemiesForWave:
-    - {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
     - {fileID: 280818889134250673, guid: e3c413712368db146815f1efb49f4c4a, type: 3}
-    countEveryEnemy: 0300000002000000
+    countEveryEnemy: 0a000000
