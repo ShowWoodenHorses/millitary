@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+[RequireComponent(typeof(PrefabIdentifier))]
+public class Bullet : PoolableObject
 {
+    public override Type PoolType => typeof(BulletPool);
 
     [Header("References")]
     [SerializeField] private Rigidbody rb;
@@ -27,6 +30,7 @@ public class Bullet : MonoBehaviour
     void FixedUpdate()
     {
         if (target == null) return;
+        if (target.position == Vector3.zero) return;
 
         Vector3 difference = (target.position - transform.position).normalized;
         rb.linearVelocity = difference * speedMove;
@@ -44,13 +48,13 @@ public class Bullet : MonoBehaviour
         if (other.transform.gameObject.GetComponent<Health>() != null)
         {
             other.transform.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
-            BulletPool.instance.ReturnObjectToPool(gameObject);
+            BulletPool.instance.ReturnObjectToPool(gameObject, GetComponent<PrefabIdentifier>().originalPrefab);
         }
     }
 
     private IEnumerator DestroyBullet()
     {
         yield return new WaitForSeconds(bulletLifeTime);
-        BulletPool.instance.ReturnObjectToPool(gameObject);
+        BulletPool.instance.ReturnObjectToPool(gameObject, GetComponent<PrefabIdentifier>().originalPrefab);
     }
 }

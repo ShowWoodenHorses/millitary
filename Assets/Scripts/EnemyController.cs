@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(PrefabIdentifier))]
 public class EnemyController : MonoBehaviour
 {
 
@@ -11,18 +13,17 @@ public class EnemyController : MonoBehaviour
 
     private Transform target;
     private Rigidbody rb;
-    private int indexPath = 0;
+    private int indexPath;
     private float baseSpeedMove;
     private int countPointToFinish;
 
-    private void Awake()
+    public void Initialise()
     {
         rb = GetComponent<Rigidbody>();
-    }
-    private void Start()
-    {
-        target = LevelManager.main.path[indexPath];
-        countPointToFinish = LevelManager.main.path.Length;
+        transform.position = LevelManager.instance.startPosition.position;
+        indexPath = 0;
+        target = LevelManager.instance.path[indexPath];
+        countPointToFinish = LevelManager.instance.path.Length;
         baseSpeedMove = speedMove;
         Rotate();
     }
@@ -35,15 +36,14 @@ public class EnemyController : MonoBehaviour
             indexPath++;
             countPointToFinish--;
 
-            if (indexPath >= LevelManager.main.path.Length)
+            if (indexPath >= LevelManager.instance.path.Length)
             {
-                EnemySpawner.onEnemyDestroy.Invoke();
-                Destroy(gameObject);
+                Destroy();
                 return;
             }
             else
             {
-                target = LevelManager.main.path[indexPath];
+                target = LevelManager.instance.path[indexPath];
             }
         }
     }
@@ -82,5 +82,13 @@ public class EnemyController : MonoBehaviour
     public int GetCountPointToFinish()
     {
         return countPointToFinish;
+    }
+
+    public void Destroy()
+    {
+        EnemySpawner.onEnemyDestroy.Invoke();
+        EnemyPool.instance.ReturnObjectToPool(gameObject, GetComponent<PrefabIdentifier>().originalPrefab);
+        GetComponent<Health>().Initialise();
+        transform.position = Vector3.zero;
     }
 }

@@ -44,12 +44,12 @@ public class Plot : MonoBehaviour
 
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
 
-        if(towerToBuild.cost > LevelManager.main.money)
+        if(towerToBuild.cost > LevelManager.instance.money)
         {
             return;
         }
 
-        LevelManager.main.RemoveMoney(towerToBuild.cost);
+        LevelManager.instance.RemoveMoney(towerToBuild.cost);
         turretObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         turretObj.transform.parent = transform;
         renderer.material = invisiableMaterial;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CarPool : ObjectPool
+public class CarPool : MonoBehaviour
 {
     public static CarPool instance { get; private set; }
 

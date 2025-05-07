@@ -27,14 +27,14 @@ public class BuildManager : MonoBehaviour
         if (canBuild)
         {
             this.selectedTower = selectedTower;
-            foreach (GameObject obj in LevelManager.main.plots)
+            foreach (GameObject obj in LevelManager.instance.plots)
             {
                 obj.GetComponent<Plot>().AvailableForBuldingColor();
             }
         }
         else
         {
-            foreach (GameObject obj in LevelManager.main.plots)
+            foreach (GameObject obj in LevelManager.instance.plots)
             {
                 obj.GetComponent<Plot>().ResetColor();
             }

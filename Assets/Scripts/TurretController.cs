@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +31,7 @@ public class TurretController : MonoBehaviour
 
         RotateTowarsTarget();
 
-        if (!TargetIsInRange())
+        if (!TargetIsInRange() || !target.gameObject.activeInHierarchy)
         {
             target = null;
         } 
@@ -83,9 +84,9 @@ public class TurretController : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bullet = BulletPool.instance.GetObjectFromPool();
-        bullet.transform.position = turretRotationPoint.position;
-        bullet.transform.rotation = turretRotationPoint.rotation;
+        GameObject bullet = BulletPool.instance.GetObjectFromPool(bulletPrefab);
+        bullet.transform.position = bulletStartPosition.position;
+        bullet.transform.rotation = bulletStartPosition.rotation;
         bullet.SetActive(true);
         bullet.GetComponent<Bullet>().SetTarget(target);
     }
@@ -109,6 +110,7 @@ public class TurretController : MonoBehaviour
                 target = hits[i].transform;
             }
         }
+
         return target;
     }
 

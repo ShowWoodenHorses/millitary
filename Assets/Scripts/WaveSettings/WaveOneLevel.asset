@@ -16,15 +16,12 @@ MonoBehaviour:
   - delaySpawnBetweenEnemy: 1
     enemies:
     - enemyPrefab: {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
-      count: 10
+      count: 7
       delaySpawn: 1
-    - enemyPrefab: {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
-      count: 3
-      delaySpawn: 2
   - delaySpawnBetweenEnemy: 2
     enemies:
-    - enemyPrefab: {fileID: 280818889134250673, guid: e3c413712368db146815f1efb49f4c4a, type: 3}
-      count: 5
+    - enemyPrefab: {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
+      count: 12
       delaySpawn: 3
   - delaySpawnBetweenEnemy: 3
     enemies:

@@ -19,8 +19,6 @@ public class UpgradeController : MonoBehaviour
     private int currentCost;
     private SellController sellController;
 
-    public static event Action ChangeCost;
-
     private void Awake()
     {
         SelectUpgrade(upgrades[level]);
@@ -46,7 +44,7 @@ public class UpgradeController : MonoBehaviour
 
     public void Upgrade()
     {
-        if (upgradeCost > LevelManager.main.money) return;
+        if (upgradeCost > LevelManager.instance.money) return;
 
         int nextLevel = level + 1;
 
@@ -54,7 +52,7 @@ public class UpgradeController : MonoBehaviour
 
         level = nextLevel;
 
-        LevelManager.main.RemoveMoney(upgradeCost);
+        LevelManager.instance.RemoveMoney(upgradeCost);
         UpdateUpgradeCostText(CalculateCost());
         SelectUpgrade(upgrades[level]);
         currentCost += upgradeCost;

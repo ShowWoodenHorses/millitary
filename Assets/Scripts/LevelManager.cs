@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager main;
+    public static LevelManager instance;
 
     public Transform startPosition;
     public Transform[] path;
@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        main = this;
+        instance = this;
     }
 
     private void Start()

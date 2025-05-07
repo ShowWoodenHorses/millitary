@@ -96,6 +96,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy(GameObject obj)
     {
-        Instantiate(obj, LevelManager.main.startPosition.position, Quaternion.identity);
+        GameObject enemy = EnemyPool.instance.GetObjectFromPool(obj);
+        enemy.GetComponent<EnemyController>().Initialise();
+        enemy.SetActive(true);
+
     }
 }

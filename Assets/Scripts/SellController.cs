@@ -14,18 +14,6 @@ public class SellController : MonoBehaviour
 
     private int costSell;
 
-    public static event Action SellTurret;
-
-    private void OnEnable()
-    {
-        UpgradeController.ChangeCost += SetCostSell;
-    }
-
-    private void OnDisable()
-    {
-        UpgradeController.ChangeCost -= SetCostSell;
-    }
-
     private void Start()
     {
         sellBtn.onClick.AddListener(Sell);
@@ -37,13 +25,13 @@ public class SellController : MonoBehaviour
         Plot plot = transform.GetComponentInParent<Plot>();
         if(plot != null)
         {
-            LevelManager.main.AddMoney(costSell);
+            LevelManager.instance.AddMoney(costSell);
             plot.SetDefaultState();
             Destroy(gameObject);
         }
     }
 
-    private int UpdateCostSell()
+    private int CalculateCostSell()
     {
         return Mathf.RoundToInt(baseCost / 2);
     }
@@ -55,7 +43,7 @@ public class SellController : MonoBehaviour
 
     private void SetCostSell()
     {
-        costSell = UpdateCostSell();
+        costSell = CalculateCostSell();
         UpdateCostSellText(costSell);
     }
 
