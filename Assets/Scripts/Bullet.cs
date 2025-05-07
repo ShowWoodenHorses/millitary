@@ -3,9 +3,8 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(PrefabIdentifier))]
-public class Bullet : PoolableObject
+public class Bullet : MonoBehaviour
 {
-    public override Type PoolType => typeof(BulletPool);
 
     [Header("References")]
     [SerializeField] private Rigidbody rb;
