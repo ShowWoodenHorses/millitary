@@ -1,5 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class LevelManager : MonoBehaviour
 {
@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 
     public Transform startPosition;
     public Transform[] path;
-    public GameObject[] plots;
+    public List<GameObject> plots;
 
     public int money;
 

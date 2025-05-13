@@ -4,9 +4,9 @@ public class Plot : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Renderer renderer;
+    [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Color hoverColor;
     [SerializeField] private Color avaiableColor;
-    [SerializeField] private Material invisiableMaterial;
 
     private GameObject turretObj;
     private UpgradeController turretUpgrade;
@@ -16,6 +16,7 @@ public class Plot : MonoBehaviour
     void Start()
     {
         renderer = GetComponent<Renderer>();
+        meshRenderer = GetComponent<MeshRenderer>();
         startColor = renderer.material.color;
         defaultMaterial = renderer.material;
     }
@@ -52,7 +53,7 @@ public class Plot : MonoBehaviour
         LevelManager.instance.RemoveMoney(towerToBuild.cost);
         turretObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         turretObj.transform.parent = transform;
-        renderer.material = invisiableMaterial;
+        meshRenderer.enabled = false;
         turretUpgrade = turretObj.GetComponent<UpgradeController>();
         turretUpgrade.SetCurrentCost(towerToBuild.cost);
     }
@@ -70,7 +71,7 @@ public class Plot : MonoBehaviour
     public void SetDefaultState()
     {
         turretObj = null;
-        renderer.material = defaultMaterial;
+        meshRenderer.enabled = true;
         renderer.material.color = startColor;
     }
 }
