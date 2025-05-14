@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 3475386162271623689}
   - component: {fileID: 286823440799779781}
   - component: {fileID: 4474736524616823473}
+  - component: {fileID: 451638030967017397}
   m_Layer: 0
   m_Name: ussr_pt_1
   m_TagString: Untagged
@@ -145,6 +146,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &451638030967017397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379600672078044553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa18b73b9559514c9d1189c3178c2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7990437212360125493
 GameObject:
   m_ObjectHideFlags: 0

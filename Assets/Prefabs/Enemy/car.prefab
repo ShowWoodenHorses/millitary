@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4256228240843547395}
   - component: {fileID: 5547494298048387220}
   - component: {fileID: -3309095231132534939}
+  - component: {fileID: -7513076056513743810}
   - component: {fileID: 3860748514757583216}
   - component: {fileID: 2293744767040312180}
   m_Layer: 6
@@ -69,9 +70,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1880518039811888983, guid: 64bf3d04bea513d41a4fabb8df1a437c, type: 3}
-  - {fileID: 5933480671273574196, guid: 64bf3d04bea513d41a4fabb8df1a437c, type: 3}
-  - {fileID: 7706475671776911154, guid: 64bf3d04bea513d41a4fabb8df1a437c, type: 3}
+  - {fileID: 2100000, guid: e2fec62713729e048a2ee0ad805a4f0b, type: 2}
+  - {fileID: 2100000, guid: cd6f419b3ea217146b665e3c74ce7398, type: 2}
+  - {fileID: 2100000, guid: effdeb2d07535a74ba9e4eb207c273e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02695b0d09a4a8439bdd8ee6d9bd585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  startHealth: 2
   cost: 10
 --- !u!114 &-3309095231132534939
 MonoBehaviour:
@@ -136,6 +137,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPrefab: {fileID: 0}
+--- !u!114 &-7513076056513743810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829736839877686603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa18b73b9559514c9d1189c3178c2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &3860748514757583216
 Rigidbody:
   m_ObjectHideFlags: 0
