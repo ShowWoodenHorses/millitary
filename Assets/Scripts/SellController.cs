@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +24,7 @@ public class SellController : MonoBehaviour
         Plot plot = transform.GetComponentInParent<Plot>();
         if(plot != null)
         {
-            LevelManager.instance.AddMoney(costSell);
+            MoneyManager.instance.AddMoney(costSell);
             plot.SetDefaultState();
             Destroy(gameObject);
         }

@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
 
         if(health <= 0 && !isDestroyed)
         {
-            LevelManager.instance.AddMoney(cost);
+            MoneyManager.instance.AddMoney(cost);
             isDestroyed = true;
             GetComponent<EnemyController>().Destroy();
         }

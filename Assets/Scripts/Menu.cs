@@ -11,7 +11,7 @@ public class Menu : MonoBehaviour
 
     private void OnGUI()
     {
-        moneyUI.text = LevelManager.instance.money.ToString();
+        moneyUI.text = MoneyManager.instance.money.ToString();
     }
 
     public void ToggleMenu()

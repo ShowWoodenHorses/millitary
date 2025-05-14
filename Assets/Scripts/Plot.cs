@@ -43,14 +43,14 @@ public class Plot : MonoBehaviour
 
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
 
-        if(towerToBuild.cost > LevelManager.instance.money)
+        if(towerToBuild.cost > MoneyManager.instance.money)
         {
             return;
         }
 
         meshRenderer.enabled = false;
 
-        LevelManager.instance.RemoveMoney(towerToBuild.cost);
+        MoneyManager.instance.RemoveMoney(towerToBuild.cost);
         turretObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         turretObj.transform.parent = transform;
         turretUpgrade = turretObj.GetComponent<UpgradeController>();

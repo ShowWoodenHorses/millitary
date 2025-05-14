@@ -44,7 +44,7 @@ public class UpgradeController : MonoBehaviour
 
     public void Upgrade()
     {
-        if (upgradeCost > LevelManager.instance.money) return;
+        if (upgradeCost > MoneyManager.instance.money) return;
 
         int nextLevel = level + 1;
 
@@ -52,7 +52,7 @@ public class UpgradeController : MonoBehaviour
 
         level = nextLevel;
 
-        LevelManager.instance.RemoveMoney(upgradeCost);
+        MoneyManager.instance.RemoveMoney(upgradeCost);
         UpdateUpgradeCostText(CalculateCost());
         SelectUpgrade(upgrades[level]);
         currentCost += upgradeCost;
