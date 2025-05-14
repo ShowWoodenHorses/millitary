@@ -15,8 +15,8 @@ MonoBehaviour:
   waves:
   - delaySpawnBetweenEnemy: 1
     enemies:
-    - enemyPrefab: {fileID: 3829736839877686603, guid: b3c90f2326a921b4788a39fb7e0c8bf9, type: 3}
-      count: 7
+    - enemyPrefab: {fileID: 7271699654949797636, guid: b73bfc4de839ef042b375fa7193249a9, type: 3}
+      count: 20
       delaySpawn: 1
   - delaySpawnBetweenEnemy: 2
     enemies:
