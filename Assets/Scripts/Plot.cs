@@ -11,14 +11,12 @@ public class Plot : MonoBehaviour
     private GameObject turretObj;
     private UpgradeController turretUpgrade;
     private Color startColor;
-    private Material defaultMaterial;
 
     void Start()
     {
         renderer = GetComponent<Renderer>();
         meshRenderer = GetComponent<MeshRenderer>();
         startColor = renderer.material.color;
-        defaultMaterial = renderer.material;
     }
 
     private void OnMouseEnter()
@@ -50,10 +48,11 @@ public class Plot : MonoBehaviour
             return;
         }
 
+        meshRenderer.enabled = false;
+
         LevelManager.instance.RemoveMoney(towerToBuild.cost);
         turretObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         turretObj.transform.parent = transform;
-        meshRenderer.enabled = false;
         turretUpgrade = turretObj.GetComponent<UpgradeController>();
         turretUpgrade.SetCurrentCost(towerToBuild.cost);
     }

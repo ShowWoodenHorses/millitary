@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8351460586585263893}
-  - component: {fileID: 2849165429967459152}
+  - component: {fileID: 7497171582903694}
   m_Layer: 0
   m_Name: turret_level2
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 3475386162271623689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2849165429967459152
+--- !u!114 &7497171582903694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,19 +42,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1832297179868379492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3fca5fcf8553ef4eb42ba84741b4a79, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b685e36f8468234a854d2d59c37b71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretRotationPoint: {fileID: 3475386162271623689}
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
+  targetingRange: 3
+  speedRotation: 2
+  offsetRotation: 0
+  attackPerSecond: 1
+  turretRotationPoint: {fileID: 3475386162271623689}
   bulletPrefab: {fileID: 1316414897478718721, guid: aada8b38e32ee2f4fa1e87a3eb9a4bde, type: 3}
   bulletStartPosition: {fileID: 5731998726758535362}
-  targetingRange: 7
-  speedRotation: 4
-  offsetRotation: 0
-  bulletPerSecond: 2
 --- !u!1 &3379600672078044553
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ Transform:
   m_GameObject: {fileID: 7990437212360125493}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.0016, z: -0.0068300003}
+  m_LocalPosition: {x: 0, y: 0.0016, z: -0.00899}
   m_LocalScale: {x: 0.009999997, y: 0.01, z: 0.009999997}
   m_ConstrainProportionsScale: 0
   m_Children: []

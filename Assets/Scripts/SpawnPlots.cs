@@ -11,6 +11,7 @@ public class SpawnPlots : MonoBehaviour
         foreach (Transform position in spawnPoints)
         {
             GameObject obj = Instantiate(prefabPlot, position.position, Quaternion.identity);
+            obj.transform.parent = transform;
             LevelManager.instance.plots.Add(obj);
         }
     }

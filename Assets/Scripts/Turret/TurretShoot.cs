@@ -1,29 +1,17 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class TurretController : MonoBehaviour
+public class TurretShoot : TurretController, IAttackable
 {
-
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
-    [SerializeField] private LayerMask targetLayer;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletStartPosition;
 
-    [Header("Attribute")]
-    [SerializeField] private float targetingRange = 5f;
-    [SerializeField] private float speedRotation = 100f;
-    [SerializeField] private float offsetRotation = -90f;
-    [SerializeField] private float bulletPerSecond = 2f;
-
     private Transform target;
-    private float timeUntilFire;
 
     void Update()
     {
-        if(target == null)
+        if (target == null)
         {
             FindTarget();
             return;
@@ -34,18 +22,18 @@ public class TurretController : MonoBehaviour
         if (!TargetIsInRange() || !target.gameObject.activeInHierarchy)
         {
             target = null;
-        } 
+        }
         else
         {
             timeUntilFire += Time.deltaTime;
 
-            if(timeUntilFire >= 1f / bulletPerSecond)
+            if (timeUntilFire >= 1f / attackPerSecond)
             {
-                Shoot();
+                Attack();
                 timeUntilFire = 0f;
             }
         }
-    } 
+    }
 
     private void FindTarget()
     {
@@ -76,13 +64,13 @@ public class TurretController : MonoBehaviour
         difference.Normalize();
         Quaternion targetRotation = Quaternion.LookRotation(difference) * Quaternion.Euler(0f, offsetRotation, 0f);
         turretRotationPoint.rotation = Quaternion.Slerp(
-            turretRotationPoint.rotation, 
-            targetRotation, 
+            turretRotationPoint.rotation,
+            targetRotation,
             speedRotation * Time.deltaTime
         );
     }
 
-    private void Shoot()
+    public void Attack()
     {
         GameObject bullet = BulletPool.instance.GetObjectFromPool(bulletPrefab);
         bullet.transform.position = bulletStartPosition.position;
@@ -101,10 +89,10 @@ public class TurretController : MonoBehaviour
         int min = hits[0].transform.gameObject.GetComponent<EnemyController>().GetCountPointToFinish();
         Transform target = hits[0].transform;
 
-        for(int i = 0; i < hits.Length; i++)
+        for (int i = 0; i < hits.Length; i++)
         {
             int countPointToFinish = hits[i].transform.gameObject.GetComponent<EnemyController>().GetCountPointToFinish();
-            if(countPointToFinish < min)
+            if (countPointToFinish < min)
             {
                 min = countPointToFinish;
                 target = hits[i].transform;
@@ -114,10 +102,4 @@ public class TurretController : MonoBehaviour
         return target;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(turretRotationPoint.position, targetingRange);
-
-    }
 }

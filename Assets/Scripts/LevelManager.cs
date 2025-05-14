@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager: MonoBehaviour
 {
     public static LevelManager instance;
 

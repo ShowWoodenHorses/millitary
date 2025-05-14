@@ -1,18 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class TurretSlowmo : MonoBehaviour
+public class TurretFreeze : TurretController, IAttackable
 {
-    [Header("References")]
-    [SerializeField] private LayerMask targetLayer;
-
     [Header("Attribute")]
-    [SerializeField] private float targetingRange = 5f;
-    [SerializeField] private float attackPerSecond = 0.25f;
     [SerializeField] private float freezeTime = 2f;
-
-    
-    private float timeUntilFire;
 
     private void Update()
     {
@@ -20,12 +12,12 @@ public class TurretSlowmo : MonoBehaviour
 
         if (timeUntilFire >= 1f / attackPerSecond)
         {
-            Freeze();
+            Attack();
             timeUntilFire = 0f;
         }
     }
 
-    private void Freeze()
+    public void Attack()
     {
         RaycastHit[] hits = Physics.SphereCastAll(
             transform.position,
@@ -53,10 +45,4 @@ public class TurretSlowmo : MonoBehaviour
         em.ResetSpeedMove();
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(transform.position, targetingRange);
-
-    }
 }

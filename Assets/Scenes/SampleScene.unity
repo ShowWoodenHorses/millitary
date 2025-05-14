@@ -1772,6 +1772,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 624424737}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &201365408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 201365410}
+  - component: {fileID: 201365409}
+  m_Layer: 0
+  m_Name: SpawnPlots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &201365409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201365408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cc80423b1e23e44a847fbb80731d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabPlot: {fileID: 4177911219856402624, guid: 2f16ce3932556df4ab95df2ee4f4bb05, type: 3}
+  spawnPoints:
+  - {fileID: 4363044888359972932}
+  - {fileID: 3932043045974684307}
+  - {fileID: 3932043045454828250}
+  - {fileID: 3932043045533855717}
+  - {fileID: 3932043045442649115}
+  - {fileID: 3932043046216493470}
+  - {fileID: 3932043044825772314}
+  - {fileID: 3932043046008909035}
+  - {fileID: 3932043044915817773}
+  - {fileID: 3932043046188649215}
+  - {fileID: 3932043046667672290}
+  - {fileID: 3932043045055723922}
+  - {fileID: 3932043046072156959}
+--- !u!4 &201365410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201365408}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &207307397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7404,7 +7463,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1409049959}
-  - component: {fileID: 1409049960}
   m_Layer: 0
   m_Name: Plots
   m_TagString: Untagged
@@ -7440,33 +7498,6 @@ Transform:
   - {fileID: 3932043046072156959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1409049960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409049958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25cc80423b1e23e44a847fbb80731d6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabPlot: {fileID: 4177911219856402624, guid: 2f16ce3932556df4ab95df2ee4f4bb05, type: 3}
-  spawnPoints:
-  - {fileID: 4363044888359972932}
-  - {fileID: 3932043045974684307}
-  - {fileID: 3932043045454828250}
-  - {fileID: 3932043045533855717}
-  - {fileID: 3932043045442649115}
-  - {fileID: 3932043046216493470}
-  - {fileID: 3932043044825772314}
-  - {fileID: 3932043046008909035}
-  - {fileID: 3932043044915817773}
-  - {fileID: 3932043046188649215}
-  - {fileID: 3932043046667672290}
-  - {fileID: 3932043045055723922}
-  - {fileID: 3932043046072156959}
 --- !u!1001 &1416617632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11955,3 +11986,4 @@ SceneRoots:
   - {fileID: 1853636463}
   - {fileID: 1856171047}
   - {fileID: 433488298}
+  - {fileID: 201365410}
